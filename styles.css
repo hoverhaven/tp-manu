@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: url("https://i.imgur.com/8bKQ8XG.jpg");
+  background: url("fondo/madera.avif") no-repeat center center fixed;
   background-size: cover;
   color: white;
 }
@@ -14,12 +14,22 @@ body {
 .flash {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 50%; /* 👈 solo media pantalla */
   height: 100%;
-  background-color: rgba(255,255,255,0.1);
   pointer-events: none;
   animation: flash 0.2s;
+}
+
+/* lado izquierdo */
+.flash.izq {
+  left: 0;
+  background: rgba(0, 255, 100, 0.15);
+}
+
+/* lado derecho */
+.flash.der {
+  right: 0;
+  background: rgba(255, 100, 100, 0.15);
 }
 
 @keyframes flash {
@@ -31,12 +41,15 @@ body {
   display: flex;
   height: 100vh;
   justify-content: space-around;
-  align-items: center;
+
+  align-items: flex-start; /* 👈 los manda arriba */
+  padding-top: 30px;       /* 👈 separación del borde superior */
 }
 
 .lado {
   width: 30%;
   text-align: center;
+  margin-top: 10px;
 }
 
 h2 {
@@ -89,7 +102,7 @@ h2 {
 }
 
 .centro {
-  text-align: center;
+  margin-top: 20px;
 }
 
 .centro h1 {

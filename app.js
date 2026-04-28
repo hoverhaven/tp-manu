@@ -131,18 +131,38 @@ document.addEventListener("touchend", (e) => {
     sumar(equipo);
   }
 
+  let audio = document.getElementById("sonidoFosforo");
+
+// reiniciar para permitir repetir rápido
+audio.currentTime = 0;
+audio.play();
+
   ultimoToque = tiempoFinal;
 
-    // 💥 EFECTO VISUAL (ACÁ VA)
-  let flash = document.createElement("div");
-  flash.classList.add("flash");
-  document.body.appendChild(flash);
+let flash = document.createElement("div");
+flash.classList.add("flash");
 
-  setTimeout(() => flash.remove(), 200);
+// 👉 agregar lado según equipo
+if (equipo === "nosotros") {
+  flash.classList.add("izq");
+} else {
+  flash.classList.add("der");
+}
+
+document.body.appendChild(flash);
+setTimeout(() => flash.remove(), 200);    
 
 });
 
+let esTouch = false;
+
+document.addEventListener("touchstart", () => {
+  esTouch = true;
+});
+
 document.addEventListener("click", (e) => {
+  if (esTouch) return; // 👈 evita doble ejecución en celular
+
   const equipo = obtenerEquipo(e.clientX);
   sumar(equipo);
 });
