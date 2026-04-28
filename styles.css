@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: url("https://i.imgur.com/8bKQ8XG.jpg");
+  background-size: cover;
+  color: white;
+}
+
+body {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+  pointer-events: none;
+  animation: flash 0.2s;
+}
+
+@keyframes flash {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.tablero {
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.lado {
+  width: 30%;
+  text-align: center;
+}
+
+h2 {
+  background: orange;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.zona {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* 👈 separación entre TODOS los elementos */
+}
+
+/* PALITOS */
+.palito {
+  width: 6px;
+  height: 40px;
+  background: #f5deb3;
+  margin: 3px;
+  border-radius: 2px;
+  position: relative;
+}
+
+/* GRUPO DE 5 */
+.grupo {
+  position: relative;
+  display: flex;
+  margin: px;
+}
+
+.grupo.cruzado::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background: red;
+  top: 50%;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+/* BOTONES */
+.botones button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.centro {
+  text-align: center;
+}
+
+.centro h1 {
+  font-size: 4em;
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* ANIMACIÓN DE CAÍDA */
+@keyframes caerPalito {
+  0% {
+    transform: translateY(-200px) rotate(-30deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px) rotate(10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-5px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* aplicar animación */
+.palito {
+  width: 6px;
+  height: 40px;
+  background: #f5deb3;
+  margin: 3px;
+  border-radius: 2px;
+  animation: caerPalito 0.5s ease;
+}
+
+/* delay para efecto cascada */
+.palito:nth-child(1) { animation-delay: 0.05s; }
+.palito:nth-child(2) { animation-delay: 0.1s; }
+.palito:nth-child(3) { animation-delay: 0.15s; }
+.palito:nth-child(4) { animation-delay: 0.2s; }
+.palito:nth-child(5) { animation-delay: 0.25s; }
+
+.grupo {
+  animation: caerPalito 0.4s ease;
+}
+
+/* PALITO BASE (ajuste) */
+.palito {
+  width: 6px;
+  height: 40px;
+  background: #f5deb3;
+  margin: 3px;
+  border-radius: 2px;
+  position: relative; /* importante */
+  animation: caerPalito 0.5s ease;
+}
+
+/* PUNTITA ROJA */
+.palito::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+
+  /* animación de brillo */
+  animation: brillo 1s infinite alternate;
+}
+
+/* EFECTO DE BRILLO */
+@keyframes brillo {
+  0% {
+    background: #ff3b3b;
+    box-shadow: 0 0 3px red;
+  }
+  100% {
+    background: #ff0000;
+    box-shadow: 0 0 10px orange;
+  }
+}
+
+.palito.activo::after {
+  animation: brillo 0.6s infinite alternate;
+}
+
+.palito::after {
+  animation: none;
+}
