@@ -102,14 +102,37 @@ h2 {
 }
 
 .centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 👈 centra todo */
+  justify-content: flex-start;
   margin-top: 20px;
 }
 
-.centro h1 {
-  font-size: 4em;
-  background: black;
-  padding: 20px;
-  border-radius: 10px;
+/* BOTÓN PRO */
+.centro button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+
+  background: linear-gradient(135deg, #1ddbdb, #1900ff);
+  border: none;
+  border-radius: 25px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.centro button:hover {
+  transform: scale(1.05);
+}
+
+/* click */
+.centro button:active {
+  transform: scale(0.95);
 }
 
 /* ANIMACIÓN DE CAÍDA */
@@ -196,4 +219,19 @@ h2 {
 
 .palito::after {
   animation: none;
+}
+
+.firulete {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 400px; /* ajustá según imagen */
+  height: 700px;
+
+  background: url("fondo/firulete.png") no-repeat center;
+  background-size: contain;
+
+  opacity: 0.9;
 }
