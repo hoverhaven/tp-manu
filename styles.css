@@ -177,11 +177,11 @@ h2 {
 /* PALITO BASE (ajuste) */
 .palito {
   width: 6px;
-  height: 40px;
+  height: 60px; /* 👈 antes 40px, ahora más largos */
   background: #f5deb3;
-  margin: 3px;
+  margin: 4px;
   border-radius: 2px;
-  position: relative; /* importante */
+  position: relative;
   animation: caerPalito 0.5s ease;
 }
 
@@ -235,3 +235,12 @@ h2 {
 
   opacity: 0.9;
 }
+
+.zona {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  min-height: 120px;
+}
+

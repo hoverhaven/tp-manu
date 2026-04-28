@@ -166,3 +166,4 @@ document.addEventListener("click", (e) => {
   const equipo = obtenerEquipo(e.clientX);
   sumar(equipo);
 });
+
