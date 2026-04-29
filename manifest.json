@@ -1,0 +1,16 @@
+{
+  "name": "Truco Anotador",
+  "short_name": "Truco",
+  "description": "Anotador de Truco",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
